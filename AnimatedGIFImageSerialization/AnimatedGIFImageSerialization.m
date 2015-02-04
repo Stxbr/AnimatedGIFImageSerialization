@@ -76,15 +76,6 @@ __attribute__((overloadable)) UIImage * UIImageWithAnimatedGIFData(NSData *data,
     }
 }
 
-static BOOL AnimatedGifDataIsValid(NSData *data) {
-    if (data.length > 4) {
-        const unsigned char * bytes = [data bytes];
-
-        return bytes[0] == 0x47 && bytes[1] == 0x49 && bytes[2] == 0x46;
-    }
-
-    return NO;
-}
 
 __attribute__((overloadable)) NSData * UIImageAnimatedGIFRepresentation(UIImage *image) {
     return UIImageAnimatedGIFRepresentation(image, 0.0f, 0, nil);
